@@ -1,0 +1,222 @@
+/* ==========================
+   JobDetails.css (Modern Clean Style)
+   ========================== */
+
+.job-details-empty {
+  background: #f9fafb;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ---------- Container ---------- */
+.job-details-container {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  color: #1f2937;
+}
+
+/* ---------- Header ---------- */
+.job-details-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 16px;
+}
+
+.job-company-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-right: 16px;
+  object-fit: contain;
+  background: #f1f5f9;
+  padding: 8px;
+}
+
+.job-header-info {
+  flex: 1;
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.company-name {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.job-location {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* ---------- Summary Section ---------- */
+.job-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.summary-item {
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* ---------- Section Styles ---------- */
+.job-section {
+  margin-bottom: 24px;
+}
+
+.job-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.job-section p {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ---------- Lists ---------- */
+.job-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.job-section li {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+/* ---------- Skills ---------- */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ---------- Company Info ---------- */
+.company-info {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.company-info .company-meta {
+  margin-top: 10px;
+}
+
+.company-info .company-meta p {
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.company-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.company-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Apply Section ---------- */
+.apply-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.apply-now-btn,
+.external-apply-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.apply-now-btn:hover,
+.external-apply-btn:hover {
+  background: #1e40af;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  .job-details-container {
+    padding: 16px;
+  }
+
+  .job-details-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .job-company-logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .job-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .apply-section {
+    flex-direction: column;
+  }
+
+  .apply-now-btn,
+  .external-apply-btn {
+    width: 100%;
+  }
+}

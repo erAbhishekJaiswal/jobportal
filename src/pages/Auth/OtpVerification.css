@@ -1,0 +1,238 @@
+/* EmailOtpVerification.css */
+.otp-verification-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.otp-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+.otp-header {
+  margin-bottom: 30px;
+}
+
+.otp-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.otp-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.otp-header h2 {
+  margin: 0 0 12px 0;
+  color: #2d3748;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.otp-header p {
+  margin: 8px 0;
+  color: #718096;
+  font-size: 16px;
+}
+
+.email-display {
+  font-weight: 600;
+  color: #4a5568 !important;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.otp-input-container {
+  margin-bottom: 30px;
+}
+
+.instruction {
+  margin: 0 0 16px 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.otp-input {
+  width: 50px;
+  height: 60px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.otp-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.otp-input:disabled {
+  background-color: #f7fafc;
+  cursor: not-allowed;
+}
+
+.otp-actions {
+  margin-bottom: 24px;
+}
+
+.verify-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.verify-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.verify-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.verify-btn.loading {
+  cursor: wait;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.resend-section {
+  margin-bottom: 20px;
+}
+
+.resend-section p {
+  margin: 0 0 12px 0;
+  color: #718096;
+  font-size: 14px;
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.resend-btn:hover:not(.disabled):not(:disabled) {
+  background-color: #f7fafc;
+  text-decoration: underline;
+}
+
+.resend-btn.disabled, .resend-btn:disabled {
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.otp-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+}
+
+.otp-footer p {
+  margin: 0;
+  color: #a0aec0;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .otp-verification-container {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+  
+  .otp-card {
+    padding: 30px 24px;
+    border-radius: 12px;
+  }
+  
+  .otp-header h2 {
+    font-size: 22px;
+  }
+  
+  .otp-inputs {
+    gap: 8px;
+  }
+  
+  .otp-input {
+    width: 44px;
+    height: 54px;
+    font-size: 20px;
+  }
+  
+  .verify-btn {
+    padding: 14px;
+  }
+}
+
+/* Animation for input focus */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+}
+
+.otp-input:focus {
+  animation: pulse 1.5s infinite;
+}

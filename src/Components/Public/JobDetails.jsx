@@ -165,6 +165,17 @@ const JobDetails = ({ job, onApply }) => {
             Apply via Company Site
           </a>
         )}
+        <button
+          className="share-job-btn"
+          onClick={() => {
+            navigator.clipboard.writeText(
+              `${window.location.origin}/${job._id}`
+            );
+            alert("Shareable link copied!");
+          }}
+        >
+          Share Job
+        </button>
       </div>
     </div>
   );

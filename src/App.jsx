@@ -12,6 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<JobPortal />} />
+          <Route path="/:id" element={<JobPortal />} />
           {/* <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/forgot-password" element={<ForgetPassword />} />

@@ -5,10 +5,12 @@ import axios from "axios";
 import ApplyPopup from "../../Components/Public/ApplyPopup";
 import JobDetails from "../../Components/Public/JobDetails";
 import Loader from "../../Components/Public/Loader";
+import { useParams } from "react-router-dom";
 
 const BasseUrl = import.meta.env.VITE_BASE_URL;
 
 const JobPortal = () => {
+  const { id } = useParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
@@ -31,6 +33,19 @@ const JobPortal = () => {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  useEffect(() => {
+  if (id && jobs.length > 0) {
+    const job = jobs.find((j) => j._id === id);
+    if (job) {
+      setSelectedJob(job);
+      setShowJobDetails(true);
+
+      if (isMobile) setShowSidebar(true);
+    }
+  }
+}, [id, jobs]);
+
 
   // Fetch Ads
   const fetchAds = async () => {
@@ -58,9 +73,23 @@ const JobPortal = () => {
     }
   };
 
+  const fetchSingleJob = async (jobId) => {
+  try {
+    const res = await axios.get(`${BasseUrl}/jobs/${jobId}`);
+    setSelectedJob(res.data);
+    setShowJobDetails(true);
+  } catch (error) {
+    console.error("Error fetching single job:", error);
+  }
+};
+
+
   useEffect(() => {
     fetchAds();
     fetchJobs();
+    if (id) {
+    fetchSingleJob(id); // <-- load specific job when opening shared URL
+  }
   }, []);
 
   // Filter jobs

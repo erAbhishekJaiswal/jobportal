@@ -1,0 +1,132 @@
+.ecom-user-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ecom-user-filters__search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ecom-user-filters__search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #6c757d;
+  z-index: 1;
+}
+
+.ecom-user-filters__search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.ecom-user-filters__search-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.ecom-user-filters__search-clear {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.ecom-user-filters__search-clear:hover {
+  background: #f8f9fa;
+}
+
+.ecom-user-filters__controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ecom-user-filters__select-group,
+.ecom-user-filters__date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ecom-user-filters__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.ecom-user-filters__select,
+.ecom-user-filters__date-input {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  background: white;
+  color: #2c3e50;
+  cursor: pointer;
+  font-size: 0.9rem;
+  min-width: 150px;
+}
+
+.ecom-user-filters__select:focus,
+.ecom-user-filters__date-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.ecom-user-filters__results {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.ecom-user-filters__count {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.ecom-user-filters__clear-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ecom-user-filters__clear-btn:hover {
+  background: #ff5252;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ecom-user-filters__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .ecom-user-filters__results {
+    margin-left: 0;
+    justify-content: space-between;
+  }
+  
+  .ecom-user-filters__select,
+  .ecom-user-filters__date-input {
+    min-width: auto;
+  }
+}

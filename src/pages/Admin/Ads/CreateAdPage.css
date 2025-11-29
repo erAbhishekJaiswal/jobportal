@@ -1,0 +1,125 @@
+/* ===== CreateAdPage Styles ===== */
+.create-ad-container {
+  margin: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.create-ad-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.create-ad-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.create-ad-fields{
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.create-ad-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-ad-field label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.4rem;
+}
+
+.create-ad-field input,
+.create-ad-field textarea {
+  padding: 0.75rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.create-ad-field input:focus,
+.create-ad-field textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.create-ad-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.create-ad-row input {
+  flex: 1;
+}
+
+.create-ad-section h4 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.create-ad-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.create-ad-btn:hover {
+  background: #0056b3;
+  transform: scale(1.02);
+}
+
+.create-ad-btn:disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+}
+
+.create-ad-message {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #28a745;
+}
+
+.create-ad-message:has(.error) {
+  color: #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .create-ad-container {
+    padding: 1.5rem;
+  }
+
+  .create-ad-row {
+    flex-direction: column;
+  }
+
+  .create-ad-title {
+    font-size: 1.5rem;
+  }
+
+  .create-ad-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,61 @@
+/* Base styles for the maintenance page */
+.mp-wrapper {
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* deep blue gradient */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.mp-content-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 3rem 2rem;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.mp-maintenance-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.mp-heading {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffb347; /* warm orange */
+}
+
+.mp-message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+  margin-bottom: 2rem;
+}
+
+.mp-footer {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+  .mp-content-box {
+    padding: 2rem 1rem;
+  }
+
+  .mp-heading {
+    font-size: 2rem;
+  }
+
+  .mp-message {
+    font-size: 1rem;
+  }
+}

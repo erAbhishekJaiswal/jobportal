@@ -1,0 +1,370 @@
+.ecom-user-management-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem 0;
+}
+
+.ecom-user-management-page__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.ecom-user-management-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.ecom-user-management-page__header-content {
+  flex: 1;
+}
+
+.ecom-user-management-page__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+}
+
+.ecom-user-management-page__subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.ecom-user-management-page__header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.ecom-user-management-page__export-btn,
+.ecom-user-management-page__add-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ecom-user-management-page__export-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.ecom-user-management-page__export-btn:hover {
+  background: #5a6268;
+}
+
+.ecom-user-management-page__add-user-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.ecom-user-management-page__add-user-btn:hover {
+  background: #45a049;
+}
+
+/* Stats Cards */
+.ecom-user-management-page__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ecom-user-management-page__stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.ecom-user-management-page__stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.ecom-user-management-page__stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.ecom-user-management-page__stat-icon--total {
+  background: #667eea;
+  color: white;
+}
+
+.ecom-user-management-page__stat-icon--active {
+  background: #4caf50;
+  color: white;
+}
+
+.ecom-user-management-page__stat-icon--blocked {
+  background: #ff6b6b;
+  color: white;
+}
+
+.ecom-user-management-page__stat-icon--inactive {
+  background: #ffa726;
+  color: white;
+}
+
+.ecom-user-management-page__stat-content {
+  flex: 1;
+}
+
+.ecom-user-management-page__stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.ecom-user-management-page__stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Controls */
+.ecom-user-management-page__controls {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.ecom-user-management-page__bulk-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.ecom-user-management-page__bulk-selected {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.ecom-user-management-page__bulk-select {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  background: white;
+  color: #2c3e50;
+  cursor: pointer;
+}
+
+.ecom-user-management-page__bulk-clear {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ecom-user-management-page__bulk-clear:hover {
+  background: #5a6268;
+}
+
+/* Content */
+.ecom-user-management-page__content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Pagination */
+.ecom-user-management-page__pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+.ecom-user-management-page__pagination-info {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.ecom-user-management-page__pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ecom-user-management-page__pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #e9ecef;
+  background: white;
+  color: #2c3e50;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.ecom-user-management-page__pagination-btn:hover:not(:disabled) {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.ecom-user-management-page__pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ecom-user-management-page__pagination-numbers {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.ecom-user-management-page__pagination-number {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e9ecef;
+  background: white;
+  color: #2c3e50;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.ecom-user-management-page__pagination-number:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.ecom-user-management-page__pagination-number--active {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.ecom-user-management-page__pagination-size {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.ecom-user-management-page__pagination-select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  background: white;
+  color: #2c3e50;
+}
+
+/* Loading State */
+.ecom-user-management-page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.ecom-user-management-page__loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: ecom-user-management-page-spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes ecom-user-management-page-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .ecom-user-management-page__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ecom-user-management-page {
+    padding: 1rem 0;
+  }
+  
+  .ecom-user-management-page__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .ecom-user-management-page__header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .ecom-user-management-page__stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .ecom-user-management-page__pagination {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .ecom-user-management-page__pagination-numbers {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecom-user-management-page__container {
+    padding: 0 0.5rem;
+  }
+  
+  .ecom-user-management-page__title {
+    font-size: 2rem;
+  }
+  
+  .ecom-user-management-page__header-actions {
+    flex-direction: column;
+  }
+  
+  .ecom-user-management-page__bulk-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

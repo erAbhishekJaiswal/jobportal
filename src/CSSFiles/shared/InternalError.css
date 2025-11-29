@@ -1,0 +1,84 @@
+/* Color palette:
+   - Background: #f8fafc (light)
+   - Primary: #2563eb (blue-600)
+   - Accent: #facc15 (yellow-400)
+   - Text: #1f2937 (gray-800)
+*/
+
+.ie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8fafc;
+  padding: 20px;
+}
+
+.ie-card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.ie-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #facc15;
+}
+
+.ie-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.ie-message {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.ie-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ie-button:hover {
+  background-color: #1d4ed8;
+}
+
+@media (max-width: 480px) {
+  .ie-card {
+    padding: 30px 20px;
+  }
+
+  .ie-title {
+    font-size: 20px;
+  }
+
+  .ie-message {
+    font-size: 14px;
+  }
+
+  .ie-button {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

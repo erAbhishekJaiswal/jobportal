@@ -1,0 +1,135 @@
+.admin-user-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
+  color: #1f2937;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn,
+.status-btn,
+.edit-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.status-btn {
+  background: #10b981;
+}
+.edit-btn {
+  background: #f59e0b;
+}
+
+.user-detail-body {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.user-sidebar {
+  flex: 1 1 250px;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.user-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user-role {
+  display: inline-block;
+  background: #3b82f6;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.user-main {
+  flex: 3 1 600px;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+.active-tab {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+.tab-content {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.info-grid .full {
+  grid-column: span 2;
+}
+.info-grid input,
+.info-grid textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.skill-badge {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.job-card,
+.certificate-card,
+.activity-item {
+  background: #f9fafb;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .user-detail-body {
+    flex-direction: column;
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

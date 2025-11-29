@@ -1,0 +1,121 @@
+.flipbook-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #f4f6f9 0%, #e3e6eb 100%);
+  min-height: 100vh;
+  padding: 20px;
+  transition: background 0.4s ease;
+}
+
+.flipbook-container.fullscreen {
+  background: #111;
+}
+
+.flipbook-wrapper {
+  margin: 20px auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pdf-flipbook {
+  border-radius: 10px;
+}
+
+.page {
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-footer {
+  font-size: 14px;
+  color: #555;
+  margin: 5px;
+}
+
+.flipbook-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.flipbook-controls button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.flipbook-controls button:hover {
+  background: #0056b3;
+}
+
+.flipbook-controls button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-progress {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.flipbook-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #ddd;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page-spinner {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.flipbook-error {
+  text-align: center;
+  padding: 50px;
+  color: red;
+  font-size: 18px;
+}

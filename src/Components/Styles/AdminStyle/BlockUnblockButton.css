@@ -1,0 +1,259 @@
+.ecom-block-unblock-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.ecom-block-unblock-btn--warning {
+  background: #fff3e0;
+  color: #ff9800;
+  border: 1px solid #ff9800;
+}
+
+.ecom-block-unblock-btn--warning:hover {
+  background: #ff9800;
+  color: white;
+}
+
+.ecom-block-unblock-btn--success {
+  background: #e8f5e8;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+}
+
+.ecom-block-unblock-btn--success:hover {
+  background: #4caf50;
+  color: white;
+}
+
+.ecom-block-unblock-btn--info {
+  background: #e3f2fd;
+  color: #2196f3;
+  border: 1px solid #2196f3;
+}
+
+.ecom-block-unblock-btn--info:hover {
+  background: #2196f3;
+  color: white;
+}
+
+.ecom-block-unblock-btn--loading {
+  background: #6c757d !important;
+  color: white !important;
+  border-color: #6c757d !important;
+  cursor: wait;
+}
+
+.ecom-block-unblock-btn__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: ecom-block-unblock-btn-spin 1s linear infinite;
+}
+
+@keyframes ecom-block-unblock-btn-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Confirmation Modal */
+.ecom-block-unblock-confirm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.ecom-block-unblock-confirm__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.ecom-block-unblock-confirm__content {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  animation: ecom-block-unblock-confirm-slideUp 0.3s ease;
+}
+
+@keyframes ecom-block-unblock-confirm-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ecom-block-unblock-confirm__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.ecom-block-unblock-confirm__title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #2c3e50;
+}
+
+.ecom-block-unblock-confirm__close {
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.ecom-block-unblock-confirm__close:hover {
+  background: #f8f9fa;
+}
+
+.ecom-block-unblock-confirm__body {
+  padding: 1.5rem;
+}
+
+.ecom-block-unblock-confirm__user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.ecom-block-unblock-confirm__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ecom-block-unblock-confirm__user-info {
+  flex: 1;
+}
+
+.ecom-block-unblock-confirm__name {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+}
+
+.ecom-block-unblock-confirm__email {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.ecom-block-unblock-confirm__role {
+  font-size: 0.8rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.ecom-block-unblock-confirm__message {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.ecom-block-unblock-confirm__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.ecom-block-unblock-confirm__btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ecom-block-unblock-confirm__btn--cancel {
+  background: #6c757d;
+  color: white;
+}
+
+.ecom-block-unblock-confirm__btn--cancel:hover {
+  background: #5a6268;
+}
+
+.ecom-block-unblock-confirm__btn--warning {
+  background: #ff9800;
+  color: white;
+}
+
+.ecom-block-unblock-confirm__btn--warning:hover {
+  background: #f57c00;
+}
+
+.ecom-block-unblock-confirm__btn--success {
+  background: #4caf50;
+  color: white;
+}
+
+.ecom-block-unblock-confirm__btn--success:hover {
+  background: #45a049;
+}
+
+.ecom-block-unblock-confirm__btn--info {
+  background: #2196f3;
+  color: white;
+}
+
+.ecom-block-unblock-confirm__btn--info:hover {
+  background: #1976d2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ecom-block-unblock-confirm__content {
+    max-width: 100%;
+  }
+  
+  .ecom-block-unblock-confirm__actions {
+    flex-direction: column;
+  }
+  
+  .ecom-block-unblock-confirm__btn {
+    width: 100%;
+  }
+}

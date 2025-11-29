@@ -1,0 +1,318 @@
+.ecom-user-table {
+  width: 100%;
+}
+
+.ecom-user-table__container {
+  overflow-x: auto;
+}
+
+.ecom-user-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+}
+
+.ecom-user-table__header {
+  background: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.ecom-user-table__th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ecom-user-table__th--sortable {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ecom-user-table__th--sortable:hover {
+  background: #e9ecef;
+}
+
+.ecom-user-table__th-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ecom-user-table__sort-icon {
+  color: #6c757d;
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.ecom-user-table__sort-icon--active {
+  color: #667eea;
+}
+
+.ecom-user-table__th--checkbox {
+  width: 40px;
+  text-align: center;
+}
+
+.ecom-user-table__body {
+  background: white;
+}
+
+.ecom-user-table__row {
+  border-bottom: 1px solid #f8f9fa;
+  transition: background-color 0.3s ease;
+}
+
+.ecom-user-table__row:hover {
+  background: #f8f9fa;
+}
+
+.ecom-user-table__td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+}
+
+.ecom-user-table__td--checkbox {
+  text-align: center;
+}
+
+.ecom-user-table__checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* User Info */
+
+.ecom-user-table__role--mentor { background-color: #ffa500; } /* orange */
+.ecom-user-table__role--employer { background-color: #6a5acd; } /* slate blue */
+.ecom-user-table__role--student { background-color: #32cd32; } /* lime green */
+
+.ecom-user-table__user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ecom-user-table__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e9ecef;
+}
+
+.ecom-user-table__user-details {
+  flex: 1;
+}
+
+.ecom-user-table__name {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+}
+
+.ecom-user-table__email {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Contact */
+.ecom-user-table__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ecom-user-table__phone {
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.ecom-user-table__verification {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.ecom-user-table__verification--verified {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+
+.ecom-user-table__verification--unverified {
+  background: #ffebee;
+  color: #f44336;
+}
+
+/* Role Badges */
+.ecom-user-table__role {
+  padding: 0.4rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ecom-user-table__role--admin {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.ecom-user-table__role--moderator {
+  background: #e3f2fd;
+  color: #2196f3;
+}
+
+.ecom-user-table__role--vendor {
+  background: #fff3e0;
+  color: #ff9800;
+}
+
+.ecom-user-table__role--customer {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+
+/* Status Badges */
+.ecom-user-table__status {
+  padding: 0.4rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ecom-user-table__status--active {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+
+.ecom-user-table__status--blocked {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.ecom-user-table__status--inactive {
+  background: #fff3e0;
+  color: #ff9800;
+}
+
+/* Date and Numbers */
+.ecom-user-table__date {
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.ecom-user-table__orders {
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.ecom-user-table__total-spent {
+  font-weight: 600;
+  color: #4caf50;
+}
+
+/* Actions */
+.ecom-user-table__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ecom-user-table__action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.ecom-user-table__action-btn--edit {
+  background: #e3f2fd;
+  color: #2196f3;
+}
+
+.ecom-user-table__action-btn--edit:hover {
+  background: #2196f3;
+  color: white;
+}
+
+.ecom-user-table__action-btn--view {
+  background: #f3e5f5;
+  color: #9c27b0;
+}
+
+.ecom-user-table__action-btn--view:hover {
+  background: #9c27b0;
+  color: white;
+}
+
+.ecom-user-table__action-btn--delete {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.ecom-user-table__action-btn--delete:hover {
+  background: #f44336;
+  color: white;
+}
+
+/* Empty State */
+.ecom-user-table__empty {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.ecom-user-table__empty-icon {
+  font-size: 4rem;
+  color: #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+.ecom-user-table__empty-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+}
+
+.ecom-user-table__empty-text {
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ecom-user-table__th {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .ecom-user-table__td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .ecom-user-table__actions {
+    flex-direction: column;
+  }
+  
+  .ecom-user-table__action-btn {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -58,6 +58,7 @@ const Login = () => {
     }
     sessionStorage.setItem("token", res.token);
     sessionStorage.setItem("role", res.role);
+    sessionStorage.setItem("email", res.email);
     } catch (error) {
       console.error(error);
       toast.error(error.response.data.message);

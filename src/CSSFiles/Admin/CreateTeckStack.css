@@ -1,0 +1,131 @@
+/* Root Wrapper */
+.cts-wrapper {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(to right, #f8fbff, #eef4ff);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* Header */
+.cts-wrapper h2 {
+  text-align: center;
+  color: #3a3a3a;
+  margin-bottom: 25px;
+}
+
+/* Form */
+.cts-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Labels */
+.cts-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #444;
+  font-size: 14px;
+}
+
+/* Required asterisk */
+.cts-form label span {
+  color: red;
+}
+
+/* Input fields and textareas */
+.cts-form input,
+.cts-form textarea {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 6px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.cts-form input:focus,
+.cts-form textarea:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 4px #6c63ff99;
+  outline: none;
+}
+
+/* Subcategory Section */
+.cts-subcategories {
+  margin-top: 10px;
+}
+
+.cts-subcategories h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.cts-subcategory-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.cts-subcategory-item input {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Add/Remove Buttons */
+.cts-add-btn,
+.cts-remove-btn {
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
+}
+
+.cts-add-btn:hover,
+.cts-remove-btn:hover {
+  background: #554fd8;
+}
+
+.cts-remove-btn {
+  background: #ff4b5c;
+}
+
+.cts-remove-btn:hover {
+  background: #d83b4b;
+}
+
+/* Submit Button */
+.cts-submit-btn {
+  background: linear-gradient(to right, #6c63ff, #9286ff);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cts-submit-btn:hover {
+  background: linear-gradient(to right, #554fd8, #7c71f0);
+  transform: translateY(-1px);
+}
+
+/* Message Paragraph */
+.cts-message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #2c7a7b;
+}

@@ -1,0 +1,667 @@
+/* BookUploadPage.css */
+.book-upload-container-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.book-upload-container-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  animation: bookUploadFloat 8s ease-in-out infinite;
+}
+
+@keyframes bookUploadFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+.book-upload-glass-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.book-upload-glass-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: bookUploadShine 3s ease-in-out infinite;
+}
+
+@keyframes bookUploadShine {
+  0%, 100% { transform: rotate(45deg) translateX(-100%); }
+  50% { transform: rotate(45deg) translateX(100%); }
+}
+
+/* Header Section */
+.book-upload-header-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.book-upload-header-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: bookUploadBounce 2s ease-in-out infinite;
+}
+
+@keyframes bookUploadBounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.book-upload-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.book-upload-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* Form Container */
+.book-upload-form-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Progress Bar */
+.book-upload-progress-section {
+  margin-bottom: 1.5rem;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.book-upload-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.book-upload-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  background-size: 200% 100%;
+  animation: bookUploadGradient 2s ease infinite;
+}
+
+@keyframes bookUploadGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.book-upload-progress-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #667eea;
+  text-align: center;
+  display: block;
+}
+
+/* Message Alert */
+.book-upload-message-alert {
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: bookUploadSlideIn 0.3s ease-out;
+}
+
+@keyframes bookUploadSlideIn {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.book-upload-message-alert.success {
+  background: rgba(72, 187, 120, 0.1);
+  border: 1px solid rgba(72, 187, 120, 0.3);
+  color: #2d774a;
+}
+
+.book-upload-message-alert.error {
+  background: rgba(245, 101, 101, 0.1);
+  border: 1px solid rgba(245, 101, 101, 0.3);
+  color: #c53030;
+}
+
+.book-upload-alert-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.book-upload-alert-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Form Grid */
+.book-upload-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .book-upload-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.book-upload-form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Input Groups */
+.book-upload-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-upload-input-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.book-upload-text-input,
+.book-upload-select-input,
+.book-upload-textarea-input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: inherit;
+}
+
+.book-upload-text-input:focus,
+.book-upload-select-input:focus,
+.book-upload-textarea-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.book-upload-textarea-input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.book-upload-char-count {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+}
+
+.book-upload-tags-hint {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Files Section */
+.book-upload-files-section {
+  margin: 2rem 0;
+}
+
+.book-upload-file-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .book-upload-file-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.book-upload-file-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px dashed #cbd5e0;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-upload-file-card:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.book-upload-file-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.book-upload-file-card:hover::before {
+  opacity: 1;
+}
+
+.book-upload-file-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.book-upload-file-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.book-upload-file-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.book-upload-file-label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.book-upload-file-input {
+  display: none;
+}
+
+.book-upload-file-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.book-upload-file-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.book-upload-file-info {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.book-upload-file-name {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.book-upload-file-size {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Cover Preview */
+.book-upload-cover-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.book-upload-preview-image {
+  max-width: 150px;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+}
+
+
+
+
+
+
+
+/* Fixed File Upload Styles */
+.book-upload-file-input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.book-upload-file-input-hidden {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.book-upload-file-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.book-upload-file-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a6fd8, #6a67a6);
+}
+
+/* Enhanced File Cards */
+.book-upload-file-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px dashed #cbd5e0;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-upload-file-card:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.book-upload-file-card.drag-over {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+  transform: scale(1.02);
+}
+
+/* File Info Styles */
+.book-upload-file-info {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  animation: bookUploadSlideIn 0.3s ease-out;
+}
+
+.book-upload-file-name {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.book-upload-file-size {
+  font-size: 0.8rem;
+  color: #666;
+  display: block;
+}
+
+/* Cover Preview */
+.book-upload-cover-preview {
+  margin-top: 1rem;
+  text-align: center;
+  animation: bookUploadSlideIn 0.3s ease-out;
+}
+
+.book-upload-preview-image {
+  max-width: 150px;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+/* Drag and Drop Enhancement */
+.book-upload-file-card {
+  position: relative;
+}
+
+.book-upload-file-card::after {
+  content: 'Click to upload or drag & drop';
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #666;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.book-upload-file-card:hover::after {
+  opacity: 1;
+}
+
+/* Submit Section */
+.book-upload-submit-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .book-upload-submit-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.book-upload-submit-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.book-upload-submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.book-upload-submit-button:hover::before {
+  left: 100%;
+}
+
+.book-upload-submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.book-upload-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.book-upload-submit-button.loading {
+  background: linear-gradient(135deg, #a0aec0, #cbd5e0);
+}
+
+.book-upload-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: bookUploadSpin 1s linear infinite;
+}
+
+@keyframes bookUploadSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.book-upload-submit-icon {
+  font-size: 1.2rem;
+}
+
+.book-upload-requirements {
+  flex: 1;
+  max-width: 300px;
+  background: rgba(102, 126, 234, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.book-upload-requirements h4 {
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.book-upload-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book-upload-requirements li {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .book-upload-glass-container {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+  
+  .book-upload-main-title {
+    font-size: 2rem;
+  }
+  
+  .book-upload-header-icon {
+    font-size: 3rem;
+  }
+  
+  .book-upload-file-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-upload-container-wrapper {
+    padding: 1rem 0.5rem;
+  }
+  
+  .book-upload-glass-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .book-upload-main-title {
+    font-size: 1.75rem;
+  }
+}

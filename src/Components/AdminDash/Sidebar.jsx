@@ -11,6 +11,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoMdListBox } from "react-icons/io";
 import { CiBoxList } from "react-icons/ci";
 import { MdLogout } from 'react-icons/md';
+import { MdOutlineVisibility } from "react-icons/md";
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 const Sidebar = ({ isOpen, onClose, darkMode }) => {
@@ -26,6 +27,7 @@ const Sidebar = ({ isOpen, onClose, darkMode }) => {
     { icon: <IoIosAddCircleOutline />, label: 'Create Company', path: '/admin/addcompany' },
     { icon: <CiBoxList />, label: 'JobList', path: '/admin/joblist' },
     { icon: <IoMdListBox />, label: 'Job Applications', path: '/admin/applicationlist' },
+    { icon: < MdOutlineVisibility/>, label: 'Visitor Analytics', path: '/admin/analytics' },
     // { icon: <MdSettings />, label: 'Settings', path: '/admin/settings' },
     // { icon: <MdSupportAgent />, label: 'Support', path: '/admin/support' }
   ];

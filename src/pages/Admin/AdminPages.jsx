@@ -12,6 +12,7 @@ import ResumeViewer from './Application/ResumeViewer'
 import UserDetails from './usermanage/UserDetails'
 import PostJobForm from './Job/PostJobForm'
 import AdminJobsList from './Job/AdminJobsList'
+import VisitorList from './Visitor/VisitorList'
 
 const AdminPages = () => {
       const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -52,6 +53,8 @@ const AdminPages = () => {
         <Route path='/applicationlist' element={<ApplicationList dark={darkMode} />} />
         <Route path='/resume/:publicId' element={<ResumeViewer dark={darkMode} />} />
         <Route path='/postjob' element={<PostJobForm dark={darkMode} />} />
+        <Route path="/analytics" element={<VisitorList dark={darkMode} />} />
+
         {/* <Route path='/create/ads' element={<CreateTechStack dark={darkMode} />} /> */}
     </Routes>
     </div>

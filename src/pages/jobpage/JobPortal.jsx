@@ -35,17 +35,30 @@ const JobPortal = () => {
   }, []);
 
   useEffect(() => {
-  if (id && jobs.length > 0) {
-    const job = jobs.find((j) => j._id === id);
-    if (job) {
-      setSelectedJob(job);
-      setShowJobDetails(true);
+    if (id && jobs.length > 0) {
+      const job = jobs.find((j) => j._id === id);
+      if (job) {
+        setSelectedJob(job);
+        setShowJobDetails(true);
 
-      if (isMobile) setShowSidebar(true);
+        if (isMobile) setShowSidebar(true);
+      }
     }
-  }
-}, [id, jobs]);
+  }, [id, jobs]);
 
+  useEffect(() => {
+    const today = new Date().toISOString().split("T")[0];
+    console.log(today);
+    
+    const visited = sessionStorage.getItem("visitedDate");
+    console.log(visited);
+    
+    if (visited === today) return; // already counted today
+    const response = axios.post(`${BasseUrl}/visitors/count`);
+    console.log(response.data);
+    
+    sessionStorage.setItem("visitedDate", today);
+  }, []);
 
   // Fetch Ads
   const fetchAds = async () => {
@@ -67,29 +80,27 @@ const JobPortal = () => {
       setJobs(response.data);
       setjobLoading(false);
       console.log(response.data);
-      
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
   };
 
   const fetchSingleJob = async (jobId) => {
-  try {
-    const res = await axios.get(`${BasseUrl}/jobs/${jobId}`);
-    setSelectedJob(res.data);
-    setShowJobDetails(true);
-  } catch (error) {
-    console.error("Error fetching single job:", error);
-  }
-};
-
+    try {
+      const res = await axios.get(`${BasseUrl}/jobs/${jobId}`);
+      setSelectedJob(res.data);
+      setShowJobDetails(true);
+    } catch (error) {
+      console.error("Error fetching single job:", error);
+    }
+  };
 
   useEffect(() => {
     fetchAds();
     fetchJobs();
     if (id) {
-    fetchSingleJob(id); // <-- load specific job when opening shared URL
-  }
+      fetchSingleJob(id); // <-- load specific job when opening shared URL
+    }
   }, []);
 
   // Filter jobs
@@ -248,53 +259,61 @@ const JobPortal = () => {
                 </h3>
               </div>
 
-              { jobloading ? <Loader /> : <div className="jobportal-card-container">
-                {/* 🟢 RENDER JOBS + ADS MERGED */}
-                {  getJobsWithAds().map((item, index) =>
-                  item.type === "job" ? (
-                    <JobCard
-                      key={`job-${item.data._id}`}
-                      job={item.data}
-                      isMobile={isMobile}
-                      onSelect={handleJobSelect}
-                      setShowApplyPopup={setShowApplyPopup}
-                      setSelectedJob={setSelectedJob}
-                    />
-                  ) : (
-                    // <AdCard key={`ad-${index}`} ad={item.data} isMobile={true} />
-                    <div className="jobportal__mobile-ad-card">
-                      <div className="jobportal__mobile-ad-content">
-                        <span className="jobportal__mobile-ad-badge">
-                          Sponsored
-                        </span>
+              {jobloading ? (
+                <Loader />
+              ) : (
+                <div className="jobportal-card-container">
+                  {/* 🟢 RENDER JOBS + ADS MERGED */}
+                  {getJobsWithAds().map((item, index) =>
+                    item.type === "job" ? (
+                      <JobCard
+                        key={`job-${item.data._id}`}
+                        job={item.data}
+                        isMobile={isMobile}
+                        onSelect={handleJobSelect}
+                        setShowApplyPopup={setShowApplyPopup}
+                        setSelectedJob={setSelectedJob}
+                      />
+                    ) : (
+                      // <AdCard key={`ad-${index}`} ad={item.data} isMobile={true} />
+                      <div className="jobportal__mobile-ad-card">
+                        <div className="jobportal__mobile-ad-content">
+                          <span className="jobportal__mobile-ad-badge">
+                            Sponsored
+                          </span>
 
-                        <div className="jobportal__mobile-ad-main">
-                          <div className="jobportal__mobile-ad-image">
-                            <img src={item.data.image} alt={item.data.title} />
+                          <div className="jobportal__mobile-ad-main">
+                            <div className="jobportal__mobile-ad-image">
+                              <img
+                                src={item.data.image}
+                                alt={item.data.title}
+                              />
+                            </div>
+
+                            <div className="jobportal__mobile-ad-text">
+                              <h4 className="jobportal__mobile-ad-title">
+                                {item.data.title}
+                              </h4>
+                              <p className="jobportal__mobile-ad-description">
+                                {item.data.description}
+                              </p>
+                            </div>
                           </div>
 
-                          <div className="jobportal__mobile-ad-text">
-                            <h4 className="jobportal__mobile-ad-title">
-                              {item.data.title}
-                            </h4>
-                            <p className="jobportal__mobile-ad-description">
-                              {item.data.description}
-                            </p>
-                          </div>
+                          <button
+                            className="jobportal__mobile-ad-cta"
+                            onClick={() =>
+                              window.open(item.data.link, "_blank")
+                            }
+                          >
+                            Learn More
+                          </button>
                         </div>
-
-                        <button
-                          className="jobportal__mobile-ad-cta"
-                          onClick={() => window.open(item.data.link, "_blank")}
-                        >
-                          Learn More
-                        </button>
                       </div>
-                    </div>
-                  )
-                )}
-              </div>
-              }
+                    )
+                  )}
+                </div>
+              )}
             </section>
 
             {/* Desktop Right Sidebar */}
@@ -306,28 +325,30 @@ const JobPortal = () => {
                     onApply={() => setShowApplyPopup(true)}
                   />
                 ) : (
-                   <div className="sidebar-widget">
-                <h4 className="widget-title">Top Companies</h4>
-                <div className="companies-list">
-                  {jobs.slice(0, 3).map((job, i) => (
-                    <div className="company-item" key={i}>
-                      {/* <img
+                  <div className="sidebar-widget">
+                    <h4 className="widget-title">Top Companies</h4>
+                    <div className="companies-list">
+                      {jobs.slice(0, 3).map((job, i) => (
+                        <div className="company-item" key={i}>
+                          {/* <img
                         src={job.company.logoUrl || "https://cdn.pixabay.com/photo/2023/03/06/13/58/logo-7833521_1280.png"}
                         alt={job.company.name}
                         className="company-logo-small"
                       /> */}
-                      <span>{job.company.name}</span>
+                          <span>{job.company.name}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
                 )}
               </aside>
             )}
           </div>
 
           {/* Desktop Ads */}
-          {!isMobile && adloading ? <Loader /> : (
+          {!isMobile && adloading ? (
+            <Loader />
+          ) : (
             <div className="jobportal_elibrary__ads-container">
               {ads.map((ad) => (
                 <AdCard key={ad._id} ad={ad} />

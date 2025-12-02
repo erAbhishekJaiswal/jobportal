@@ -1,9 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import '../../CSSFiles/Students/MyApplications.css';
 const BasseUrl = import.meta.env.VITE_BASE_URL;
-
+import { getToken } from '../../utils/localstorage';
 const MyApplications = () => {
-    
+    const token = getToken();
 
 //  const applicationsData = {
 //     "success": true,
@@ -26,7 +26,11 @@ const MyApplications = () => {
   const email = sessionStorage.getItem("email");
   const fetchApplications = async () => {
     try {
-      const response = await fetch(`${BasseUrl}/applications/email/${encodeURIComponent(email)}`);
+      const response = await fetch(`${BasseUrl}/applications/email/${encodeURIComponent(email)}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       setApplicationsData(data);
       console.log(data);

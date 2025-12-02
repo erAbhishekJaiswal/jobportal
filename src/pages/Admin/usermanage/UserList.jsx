@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import UserListTable from '../../../Components/AdminDash/UserListTable';
 import UserFilters from '../../../Components/AdminDash/UserFilters';
 import '../../../CSSFiles/Admin/UserList.css';
+import { getToken } from '../../../utils/localstorage';
 
 const UserList = () => {
+  const token = getToken();
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [filters, setFilters] = useState({
@@ -24,7 +26,7 @@ const UserList = () => {
 
     const fatchUsers = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/users/`); // Replace with your API endpoint
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/users/`, { headers: { Authorization: `Bearer ${token}` } }); // Replace with your API endpoint
         const data = await response.json();
         console.log(data);
         

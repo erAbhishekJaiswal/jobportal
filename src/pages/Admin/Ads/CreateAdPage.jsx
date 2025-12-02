@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./CreateAdPage.css"; // import custom CSS
 const BasseUrl = import.meta.env.VITE_BASE_URL
+import { getToken} from "../../../utils/localstorage";
 // === Helper functions ===
 const getCloudinarySignature = async (folder = "ads_images") => {
   const res = await axios.get(`${import.meta.env.VITE_BASE_URL}/cloudinary/signature?folder=${folder}`);
@@ -36,6 +37,8 @@ const uploadImagesToCloudinary = async (imageFiles, signatureData) => {
 
 // === Main Component ===
 const CreateAdPage = () => {
+  const token = getToken();
+  
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -80,7 +83,11 @@ const CreateAdPage = () => {
         tags: formData.tags.split(",").map((t) => t.trim()),
       };
 
-      const res = await axios.post(`${BasseUrl}/ads/`, adPayload);
+      const res = await axios.post(`${BasseUrl}/ads/`, adPayload , {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setMessage("✅ Ad created successfully!");
       console.log("Created Ad:", res.data);

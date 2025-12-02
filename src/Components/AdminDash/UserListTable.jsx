@@ -7,12 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-hot-toast';
 import axios from 'axios';
 const BasseUrl = import.meta.env.VITE_BASE_URL
+import { getToken } from '../../utils/localstorage';
 const UserListTable = ({
   users,
   onSort,
   sortConfig,
   onStatusChange
 }) => {
+  const token = getToken();
   const navigate = useNavigate();
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -68,7 +70,7 @@ const UserListTable = ({
   const handleDeleteUser = async (id) =>{
     // Implement delete user functionality here
     try {
-      const response = await axios.delete(`${BasseUrl}/users/${id}`);
+      const response = await axios.delete(`${BasseUrl}/users/${id}` , {headers: { Authorization: `Bearer ${token}` }});
       if (response.status === 200) {
         toast.success('User deleted successfully');
         // Optionally, refresh the user list or update state here

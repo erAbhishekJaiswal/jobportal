@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import "./AddCompany.css";
 const BasseUrl = import.meta.env.VITE_BASE_URL
+import { getToken } from "../../../utils/localstorage";
 
 const AddCompany = () => {
   const [formData, setFormData] = useState({
@@ -43,7 +44,11 @@ const AddCompany = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post(`${BasseUrl}/companies/`, payload);
+      const response = await axios.post(`${BasseUrl}/companies/`, payload, {
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
       toast.success("✅ Company created successfully!");
       console.log(response.data);
 

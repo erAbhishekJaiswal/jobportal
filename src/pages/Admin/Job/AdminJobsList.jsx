@@ -3,8 +3,10 @@ import axios from 'axios';
 import './AdminJobsList.css';
 import { useNavigate } from 'react-router-dom';
 const BasseUrl = import.meta.env.VITE_BASE_URL
+import { getToken } from '../../../utils/localstorage';
 
 const AdminJobsList = () => {
+  const token = getToken();
     const navigate = useNavigate();
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +31,11 @@ const AdminJobsList = () => {
   const fetchJobs = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${BasseUrl}/jobs/admin`);
+      const response = await axios.get(`${BasseUrl}/jobs/admin` , {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const jobsData = response.data;
       
       setJobs(jobsData);
@@ -162,7 +168,11 @@ const AdminJobsList = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${BasseUrl}/jobs/${editingJob._id}`, editingJob);
+      await axios.put(`${BasseUrl}/jobs/${editingJob._id}`, editingJob, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       await fetchJobs();
       setShowEditModal(false);
       setEditingJob(null);
@@ -178,7 +188,11 @@ const AdminJobsList = () => {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(`${BasseUrl}/jobs/${jobToDelete._id}`);
+      await axios.delete(`${BasseUrl}/jobs/${jobToDelete._id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       await fetchJobs();
       setShowDeleteModal(false);
       setJobToDelete(null);
@@ -190,7 +204,11 @@ const AdminJobsList = () => {
   const toggleJobStatus = async (job) => {
     try {
       await axios.put(`${BasseUrl}/jobs/${job._id}`, {
-        isActive: !job.isActive
+        isActive: !job.isActive,
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+      }
       });
       await fetchJobs();
     } catch (error) {

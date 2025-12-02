@@ -3,8 +3,9 @@ import axios from "axios";
 import "./PostJobForm.css";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import {getToken} from '../../../utils/localstorage';
 const PostJobForm = () => {
+  const token = getToken();
     const navigate = useNavigate();
   const [companySearch, setCompanySearch] = useState("");
   const [companyResults, setCompanyResults] = useState([]);
@@ -86,7 +87,9 @@ const PostJobForm = () => {
       setCompanyLoading(true);
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/companies/search?query=${query}`
+          `${import.meta.env.VITE_BASE_URL}/companies/search?query=${query}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          }
         );
         console.log(res);
         
@@ -133,7 +136,10 @@ const PostJobForm = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/jobs`,
-        formData
+        formData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
       );
 
       if (response.data.success) {

@@ -34,6 +34,22 @@ const JobPortal = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // without ip tracking the on one load on page
+// Track visitors without IP
+useEffect(() => {
+  const withoutIpTracking = async () => {
+    try {
+      const response = await axios.get(`${BasseUrl}/visitors/view/count`);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching visitors:", error);
+    }
+  };
+
+  withoutIpTracking();
+}, []);
+
+
   useEffect(() => {
     if (id && jobs.length > 0) {
       const job = jobs.find((j) => j._id === id);
@@ -73,17 +89,42 @@ const JobPortal = () => {
   };
 
   // Fetch Jobs
-  const fetchJobs = async () => {
-    try {
-      setjobLoading(true);
-      const response = await axios.get(`${BasseUrl}/jobs/`);
-      setJobs(response.data);
-      setjobLoading(false);
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error fetching jobs:", error);
+//   const fetchJobs = async () => {
+//     try {
+//       setjobLoading(true);
+//       const response = await axios.get(`${BasseUrl}/jobs/`);
+//       setJobs(response.data);
+//       // NEW → Automatically set first job as default (only desktop)
+// if (!isMobile && response.data.length > 0 && !selectedJob) {
+//   setSelectedJob(response.data[0]);
+// }
+//       setjobLoading(false);
+//       console.log(response.data);
+//     } catch (error) {
+//       console.error("Error fetching jobs:", error);
+//     }
+//   };
+
+
+// Fetch Jobs
+const fetchJobs = async () => {
+  try {
+    setjobLoading(true);
+    const response = await axios.get(`${BasseUrl}/jobs/`);
+    setJobs(response.data);
+    setjobLoading(false);
+    console.log(response.data);
+
+    // ⭐ NEW: Show first job by default in desktop sidebar
+    if (response.data.length > 0 && !isMobile && !selectedJob) {
+      setSelectedJob(response.data[0]);
+      setShowJobDetails(true);
     }
-  };
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+  }
+};
+
 
   const fetchSingleJob = async (jobId) => {
     try {
@@ -95,13 +136,24 @@ const JobPortal = () => {
     }
   };
 
+  // useEffect(() => {
+  //   fetchAds();
+  //   fetchJobs();
+  //   if (id) {
+  //     fetchSingleJob(id); // <-- load specific job when opening shared URL
+  //   }
+  // }, []);
+
+
   useEffect(() => {
-    fetchAds();
-    fetchJobs();
-    if (id) {
-      fetchSingleJob(id); // <-- load specific job when opening shared URL
-    }
-  }, []);
+  fetchAds();
+  fetchJobs();
+
+  if (id) {
+    fetchSingleJob(id); // If URL has ID → override default
+  }
+}, [isMobile]); 
+
 
   // Filter jobs
   const filteredJobs = jobs.filter((job) => {
@@ -133,7 +185,7 @@ const JobPortal = () => {
     if (!isMobile) return filteredJobs.map((j) => ({ type: "job", data: j }));
 
     const merged = [];
-    const adFrequency = 3; // insert ad every 3 jobs
+    const adFrequency = 2; // insert ad every 3 jobs
 
     filteredJobs.forEach((job, index) => {
       merged.push({ type: "job", data: job });
@@ -263,6 +315,40 @@ const JobPortal = () => {
                 <Loader />
               ) : (
                 <div className="jobportal-card-container">
+                   <div className="jobportal__mobile-ad-card">
+                        <div className="jobportal__mobile-ad-content">
+                          <span className="jobportal__mobile-ad-badge">
+                            Sponsored
+                          </span>
+
+                          <div className="jobportal__mobile-ad-main">
+                            <div className="jobportal__mobile-ad-image">
+                              <img
+                                src={ads[0]?.image}
+                                alt={ads[0]?.title}
+                              />
+                            </div>
+
+                            <div className="jobportal__mobile-ad-text">
+                              <h4 className="jobportal__mobile-ad-title">
+                                {ads[0]?.title}
+                              </h4>
+                              <p className="jobportal__mobile-ad-description">
+                                {ads[0]?.description}
+                              </p>
+                            </div>
+                          </div>
+
+                          <button
+                            className="jobportal__mobile-ad-cta"
+                            onClick={() =>
+                              window.open(ads[0]?.link, "_blank")
+                            }
+                          >
+                            Learn More
+                          </button>
+                        </div>
+                      </div>
                   {/* 🟢 RENDER JOBS + ADS MERGED */}
                   {getJobsWithAds().map((item, index) =>
                     item.type === "job" ? (
@@ -406,7 +492,7 @@ const JobCard = ({
     </p>
 
     <div className="job-footer">
-      <span>{new Date(job.postedDate).toLocaleDateString()}</span>
+      <span className="job-footer-date">{new Date(job.postedDate).toLocaleDateString()}</span>
 
       <button
         className="apply-btn"

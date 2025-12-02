@@ -26,7 +26,12 @@ const JobDetails = ({ job, onApply }) => {
             📍 {job.location || "Location not specified"}
           </p>
         </div>
+        <button className="apply-btn" onClick={onApply}>Apply</button>
       </div>
+
+      <div className="job-details-scroll-data">
+
+     
 
       {/* ✅ Job Summary */}
       <div className="job-summary">
@@ -177,6 +182,8 @@ const JobDetails = ({ job, onApply }) => {
           Share Job
         </button>
       </div>
+
+       </div>
     </div>
   );
 };

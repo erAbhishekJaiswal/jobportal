@@ -68,15 +68,17 @@ const Login = () => {
 
   return (
     <div className="login-page">
-      <div className="back-to-home">
-        <a href="https://elearning.kumarinfotech.net/" className="back-to-home-btn"> <FaArrowLeft /> Back to Home</a>
-        </div>
+      
     <div className="login-container">
       
       <div className="login-header">
-        
+        <div className="back-to-home">
+        <a href="https://jobportalindia.kumarinfotech.net/" className="back-to-home-btn"> <FaArrowLeft /></a>
+        </div>
+        <div className="heading-content">
         <h1>Welcome Back</h1>
         <p>Sign in to your account</p>
+        </div>
       </div>
       {loading && <p>Loading...</p>}
 

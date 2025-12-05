@@ -64,14 +64,14 @@ useEffect(() => {
 
   useEffect(() => {
     const today = new Date().toISOString().split("T")[0];
-    console.log(today);
+    // console.log(today);
     
     const visited = sessionStorage.getItem("visitedDate");
-    console.log(visited);
+    // console.log(visited);
     
     if (visited === today) return; // already counted today
     const response = axios.post(`${BasseUrl}/visitors/count`);
-    console.log(response.data);
+    // console.log(response.data);
     
     sessionStorage.setItem("visitedDate", today);
   }, []);
@@ -224,7 +224,7 @@ const fetchJobs = async () => {
           isOpen={showApplyPopup}
           onClose={() => {
             setShowApplyPopup(false);
-            setSelectedJob(null);
+            // setSelectedJob(null);
           }}
           onSubmit={(formData) => {
             alert(`Application submitted for ${selectedJob.title}`);
@@ -411,21 +411,20 @@ const fetchJobs = async () => {
                     onApply={() => setShowApplyPopup(true)}
                   />
                 ) : (
-                  <div className="sidebar-widget">
-                    <h4 className="widget-title">Top Companies</h4>
-                    <div className="companies-list">
-                      {jobs.slice(0, 3).map((job, i) => (
-                        <div className="company-item" key={i}>
-                          {/* <img
-                        src={job.company.logoUrl || "https://cdn.pixabay.com/photo/2023/03/06/13/58/logo-7833521_1280.png"}
-                        alt={job.company.name}
-                        className="company-logo-small"
-                      /> */}
-                          <span>{job.company.name}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                   <JobDetails
+                    job={selectedJob}
+                    onApply={() => setShowApplyPopup(true)}
+                  />
+                  // <div className="sidebar-widget">
+                  //   <h4 className="widget-title">Top Companies</h4>
+                  //   <div className="companies-list">
+                  //     {jobs.slice(0, 3).map((job, i) => (
+                  //       <div className="company-item" key={i}>
+                  //         <span>{job.company.name}</span>
+                  //       </div>
+                  //     ))}
+                  //   </div>
+                  // </div>
                 )}
               </aside>
             )}
